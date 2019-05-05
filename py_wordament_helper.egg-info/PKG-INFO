@@ -1,0 +1,14 @@
+Metadata-Version: 1.0
+Name: py-wordament-helper
+Version: 0.1.0
+Summary: A small example class for solving wordament problems.
+Home-page: https://github.com/chrisguest75/py-wordament-helper
+Author: Chris Guest
+Author-email: chris@chrisguest.dev
+License: LICENSE.txt
+Description: # README.md 
+        A small example class for solving wordament problems.  
+        
+        The words alpha has been sourced from.
+        [words_alpha.txt](https://github.com/dwyl/english-words/blob/master/words_alpha.txt)
+Platform: UNKNOWN

@@ -1,0 +1,13 @@
+README.md
+setup.py
+py_wordament_helper/__init__.py
+py_wordament_helper/dictionary_abc.py
+py_wordament_helper/dictionary_trie.py
+py_wordament_helper/wordament_helper.py
+py_wordament_helper.egg-info/PKG-INFO
+py_wordament_helper.egg-info/SOURCES.txt
+py_wordament_helper.egg-info/dependency_links.txt
+py_wordament_helper.egg-info/top_level.txt
+test/__init__.py
+test/test_dictionary_trie.py
+test/test_wordament_helper.py

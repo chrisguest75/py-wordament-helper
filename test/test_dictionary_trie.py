@@ -1,5 +1,5 @@
 import pytest
-from dictionary_trie import dictionary_trie
+from py_wordament_helper.dictionary_trie import dictionary_trie
 
 
 def test_empty():

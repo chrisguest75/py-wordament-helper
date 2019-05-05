@@ -1,8 +1,8 @@
 
 import pytest
 import io
-from wordament_helper import wordament_helper
-from dictionary_trie import dictionary_trie
+from py_wordament_helper.wordament_helper import wordament_helper
+from py_wordament_helper.dictionary_trie import dictionary_trie
 
 
 def test_solver():
@@ -23,7 +23,7 @@ def test_solver():
 def test_full_dictionary():
     grid = 'GLNTSRAWRPHSEOPS'
 
-    with(io.open("./words_alpha.txt")) as f:
+    with(io.open("./test/words_alpha.txt")) as f:
         lines = [line.rstrip() for line in f]
         #lines = f.readlines()
 

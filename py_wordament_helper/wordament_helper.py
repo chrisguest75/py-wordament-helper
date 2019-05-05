@@ -1,5 +1,5 @@
 from typing import List, Type, Text
-from dictionary_abc import dictionary_abc
+from py_wordament_helper.dictionary_abc import dictionary_abc
 
 
 class wordament_helper():
