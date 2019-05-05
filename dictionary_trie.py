@@ -1,7 +1,8 @@
 from typing import List, Text
+from dictionary_abc import dictionary_abc
 
 
-class dictionary_trie():
+class dictionary_trie(dictionary_abc):
     class _trie_node():
         def __init__(self, letter: Text, end_of_word: bool = False):
             self._letter = letter
@@ -33,14 +34,21 @@ class dictionary_trie():
 
     def __init__(self, words: List = []):
         self._num_words = 0
+        self._longest_word_length = 0
         self._root_node = dictionary_trie._trie_node('*')
         self.insert_words(words)
 
     def number_of_words(self) -> int:
         return self._num_words
 
+    def longest_word_length(self) -> int:
+        return self._longest_word_length
+
     def insert_words(self, words: List = []):
         for word in words:
+            if len(word) > self._longest_word_length:
+                self._longest_word_length = len(word)
+                
             if word == "":
                 continue
             word = word.lower()
@@ -54,6 +62,26 @@ class dictionary_trie():
                 newnode = dictionary_trie._trie_node(word[len(word) - 1], True)
                 current_node = current_node.add_child(newnode)
                 self._num_words += 1
+
+    def is_partial_word(self, word: Text) -> bool:
+        current_node = self._root_node
+        word = word.lower()
+
+        if word == "":
+            return False
+
+        for letter in word[:-1]:
+            child = current_node.get_child(letter)
+            if child is None:
+                return False
+            else:
+                current_node = child
+
+        child = current_node.get_child(word[len(word) - 1])
+        if child is None and not current_node.is_end_word():
+            return False
+        else:
+            return True
 
     def is_word(self, word: Text) -> bool:
         current_node = self._root_node

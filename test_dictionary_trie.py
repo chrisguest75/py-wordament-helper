@@ -68,7 +68,27 @@ def test_overlapping_words():
     assert(trie.is_word("wordament"))
 
 
-#def test_get_possible_next_letters():
-#    trie = dictionary_trie(["wordament", "word", "work"])
-#    assert(trie.get_possible_next_letters("wor") == ['k', 'd'])
+def test_more_words():
+    trie = dictionary_trie(["grass", "like", "shops", "shop", "wasp", "want", "hops"])
+    assert(trie.number_of_words() == 7)
+    assert(trie.is_word("grass"))
 
+
+def test_get_longest_word():
+    trie = dictionary_trie(["wordament", "word", "work", "top", "behaviour"])
+    assert(trie.longest_word_length() == 9)
+
+
+def test_is_partial_word():
+    trie = dictionary_trie(["wordament", "word", "work"])
+    assert(trie.is_partial_word("wor"))
+    assert(not trie.is_partial_word("worm"))
+
+
+def test_is_partial_word_complete_words():
+    trie = dictionary_trie(['grass', 'want', 'wasp', 'hops', 'shop', 'shops'])
+
+    # complete words are also classed as partial
+    assert(trie.is_partial_word("shops"))
+    assert(trie.is_partial_word("shop"))
+    assert(not trie.is_partial_word("worm"))
