@@ -35,7 +35,7 @@ class wordament_helper():
             return
 
         if len(word) >= 3:
-            print(f"{word} - {x} {y}")
+            #print(f"{word} - {x} {y}")
             if self._trie.is_word(word):
                 total_words[word.lower()] = True
 

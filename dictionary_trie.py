@@ -102,3 +102,5 @@ class dictionary_trie(dictionary_abc):
             return False
         else:
             return child.is_end_word()
+
+    
