@@ -1,4 +1,6 @@
 # README.md 
+[![image](https://img.shields.io/github/license/chrisguest75/py-wordament-helper.svg)](https://img.shields.io/github/license/chrisguest75/py-wordament-helper.svg)
+
 A small example class for solving wordament problems.  
 
 The words alpha has been sourced from.
