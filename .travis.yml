@@ -9,9 +9,11 @@ matrix:
 install:
   - 'pip install pipenv'
   - 'pipenv install --dev'
+  - 'pipenv install codecov'
 
 script: 
   - 'flake8 ./*/*.py'
   - 'flake8 ./*.py'
-  - 'python -m pytest --cov=. --cov-report=xml'  
+  - 'python -m pytest --cov=./'  
+  - 'codecov'
 
