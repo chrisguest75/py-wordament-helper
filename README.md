@@ -14,7 +14,7 @@ pipenv shell
 
 To install as part of a project
 ```
-pipenv install https://github.com/chrisguest75/py-wordament-helper
+pipenv install git+https://github.com/chrisguest75/py-wordament-helper#egg=py-wordament-helper
 ```
 
 # Example
