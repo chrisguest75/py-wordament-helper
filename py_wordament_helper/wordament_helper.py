@@ -8,7 +8,7 @@ class wordament_helper():
 
         def __init__(self, width: int, height: int, grid: Text):
             """Construct a board state.
-            
+
             Arguments:
                 width {int} -- Width of board
                 height {int} -- Height of board
@@ -17,11 +17,11 @@ class wordament_helper():
             self.width = width
             self.height = height
             self._grid = list(grid).copy()
-            #print("copy " + str(self._grid))
+            # print("copy " + str(self._grid))
 
         def copy(self):
             """Deep copy the board state
-            
+
             Returns:
                 [type] -- A copy of the state
             """
@@ -29,30 +29,29 @@ class wordament_helper():
 
         def get(self, x: int, y: int) -> Text:
             """[summary]
-            
+
             Arguments:
                 x {int} -- X position to get
                 y {int} -- Y position to get
-            
             """
             return self._grid[(self.width * y) + x]
 
         def mark(self, x: int, y: int):
             """Mark the grid to inidicate visited
-            
+
             Arguments:
                 x {int} -- X position to mark
                 y {int} -- Y position to mark
             """
             self._grid[(self.width * y) + x] = self.MARK
-            #print("mark " + str(self._grid))
+            # print("mark " + str(self._grid))
 
         def check_mark(self, c: Text) -> bool:
             """Is the letter marked?
-            
+
             Arguments:
                 c {Text} -- Letter to check if marked
-            
+
             Returns:
                 [bool] -- True if marked
             """
@@ -60,7 +59,7 @@ class wordament_helper():
 
     def __init__(self, grid: Text, trie: Type[dictionary_abc]):
         """Constructs the wordament_helper
-        
+
         Arguments:
             grid {Text} -- The word square to solve
             trie {Type[dictionary_abc]} -- The dictionary supporting is_word()
@@ -70,14 +69,14 @@ class wordament_helper():
 
     def _solve(self, board_state, x: int, y: int, word: Text, depth: int, total_words: dict):
         """Internal method that is called recusrsively
-        
+
         Arguments:
-            board_state {[type]} -- The board state including which letters have already been visited 
-            x {int} -- Current X position on board 
+            board_state {[type]} -- The board state including which letters have already been visited
+            x {int} -- Current X position on board
             y {int} -- Current Y position on board
             word {Text} -- Current word
             depth {int} -- Current depth in the board
-            total_words {dict} -- Discovered words dictionary        
+            total_words {dict} -- Discovered words dictionary
         """
         if not self._trie.is_partial_word(word):
             return
@@ -101,10 +100,10 @@ class wordament_helper():
                             new_grid_state = board_state.copy()
                             new_grid_state.mark(newx, newy)
                             self._solve(new_grid_state, newx, newy, word + c, depth + 1, total_words)
-                    
+
     def solve(self) -> List:
         """Use the dictionary and board to find the words in the wordament square
-        
+
         Returns:
             List -- Words contained in the wordsquare
         """
