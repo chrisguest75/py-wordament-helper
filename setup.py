@@ -9,7 +9,7 @@ setup(
     scripts=[],
     url='https://github.com/chrisguest75/py-wordament-helper',
     license='LICENSE.txt',
-    description='A small example class for solving wordament problems.',
+    description='A package for solving simple Wordament problems.',
     long_description=open('README.md').read(),
     install_requires=[
     ],
