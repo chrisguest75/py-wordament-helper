@@ -1,4 +1,3 @@
-import pytest
 from py_wordament_helper.dictionary_trie import dictionary_trie
 
 

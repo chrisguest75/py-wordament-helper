@@ -1,5 +1,4 @@
 
-import pytest
 import io
 from py_wordament_helper.wordament_helper import wordament_helper
 from py_wordament_helper.dictionary_trie import dictionary_trie
@@ -25,7 +24,6 @@ def test_full_dictionary():
 
     with(io.open("./test/words_alpha.txt")) as f:
         lines = [line.rstrip() for line in f]
-        #lines = f.readlines()
 
     trie = dictionary_trie(lines)
 
@@ -38,4 +36,3 @@ def test_full_dictionary():
     assert("grape" in words)
     assert("warp" in words)
     assert("orphan" in words)
-
