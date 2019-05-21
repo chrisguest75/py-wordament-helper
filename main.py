@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
 import io
-from wordament_helper import wordament_helper
-from dictionary_trie import dictionary_trie
+from py_wordament_helper.wordament_helper import wordament_helper
+from py_wordament_helper.dictionary_trie import dictionary_trie
 
 if __name__ == '__main__':
     grid = 'GLNTSRAWRPHSEOPS'
     # trie = dictionary_trie(["grass", "like", "shops", "shop", "wasp", "want", "hops"])
 
-    with(io.open("./words_alpha.txt")) as f:
+    with(io.open("./test/words_alpha.txt")) as f:
         lines = [line.rstrip() for line in f]
         #lines = f.readlines()
 

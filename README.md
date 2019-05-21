@@ -5,7 +5,6 @@ The words alpha has been sourced from.
 [words_alpha.txt](https://github.com/dwyl/english-words/blob/master/words_alpha.txt)
 
 # Install 
-
 ```
 export PIPENV_VENV_IN_PROJECT=1
 pipenv install --three
@@ -21,5 +20,9 @@ Select the test directory
 To execute code coverage on the unittests
 ```
 pytest --cov=. --cov-report html:coverage
+open ./coverage/index.html
 ```
+
+# Example
+Run ./main.py from the root.
 
