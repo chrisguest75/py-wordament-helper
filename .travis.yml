@@ -10,5 +10,8 @@ install:
   - 'pip install pipenv'
   - 'pipenv install --dev'
 
-script: 'python -m pytest --cov=. --cov-report=xml'  
+script: 
+  - 'flake8 ./*/*.py'
+  - 'flake8 ./*.py'
+  - 'python -m pytest --cov=. --cov-report=xml'  
 
