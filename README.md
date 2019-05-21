@@ -1,5 +1,6 @@
 # README.md 
-[![image](https://img.shields.io/github/license/chrisguest75/py-wordament-helper.svg)](https://img.shields.io/github/license/chrisguest75/py-wordament-helper.svg) [![image](https://img.shields.io/travis/com/chrisguest75/py-wordament-helper.svg)](https://img.shields.io/travis/com/chrisguest75/py-wordament-helper.svg)
+[![image](https://img.shields.io/github/license/chrisguest75/py-wordament-helper.svg)](https://img.shields.io/github/license/chrisguest75/py-wordament-helper.svg) [![image](https://img.shields.io/travis/com/chrisguest75/py-wordament-helper.svg)](https://img.shields.io/travis/com/chrisguest75/py-wordament-helper.svg) [![image](https://img.shields.io/codecov/c/gh/chrisguest75/py-wordament-helper.svg)](https://img.shields.io/codecov/c/gh/chrisguest75/py-wordament-helper.svg)
+
 
 A small example class for solving wordament problems.  
 
