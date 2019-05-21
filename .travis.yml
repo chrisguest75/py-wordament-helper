@@ -8,7 +8,7 @@ matrix:
   
 install:
   - 'pip install pipenv'
-  - 'pipenv install'
+  - 'pipenv install --dev'
 
 script: 'python -m pytest --cov=. --cov-report=xml'  
 
