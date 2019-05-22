@@ -51,4 +51,10 @@ pytest --cov=. --cov-report html:coverage
 open ./coverage/index.html
 ```
 
-
+# Complexity and Maintainabiity metrics
+Use radon to return code complexity and maintainability metrics. 
+```
+radon cc ./
+radon mi ./
+radon hal ./
+```
