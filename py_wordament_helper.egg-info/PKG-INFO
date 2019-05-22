@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: py-wordament-helper
-Version: 0.1.1
+Version: 0.1.2
 Summary: A package for solving simple Wordament problems.
 Home-page: https://github.com/chrisguest75/py-wordament-helper
 Author: Chris Guest
@@ -43,8 +43,8 @@ Description: # README.md
         ```
         
         # Example
-        ./main.py is an example of how to use the interface.
-        You can run ./main.py from the root.  
+        ./examples/main.py is an example of how to use the interface.
+        If in the pipenv environment you can run ./examples/main.py from inside the examples directory.  
         
         # Setting up tests in VSCode
         Use shift+cmd+p to open the command palette. 
@@ -59,6 +59,12 @@ Description: # README.md
         open ./coverage/index.html
         ```
         
-        
+        # Complexity and Maintainabiity metrics
+        Use radon to return code complexity and maintainability metrics. 
+        ```
+        radon cc ./
+        radon mi ./
+        radon hal ./
+        ```
         
 Platform: UNKNOWN

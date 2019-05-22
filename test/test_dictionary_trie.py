@@ -16,6 +16,11 @@ def test_initialise_with_empty_words():
     assert(trie.number_of_words() == 1)
 
 
+def test_initialise_with_duplicate_words():
+    trie = dictionary_trie(["duplicate", "duplicate", "duplicate"])
+    assert(trie.number_of_words() == 1)
+
+
 def test_insert_words():
     trie = dictionary_trie(["word1", "word2", "spare"])
     trie.insert_words(["word3"])
@@ -58,6 +63,13 @@ def test_insert_same_word():
     assert(trie.number_of_words() == 3)
 
 
+def test_insert_duplicates_word():
+    trie = dictionary_trie(["word1", "word2", "word3"])
+    inserted = trie.insert_words(["word4", "word1", "word2", "word3"])
+    assert(inserted == 1)
+    assert(trie.number_of_words() == 4)
+
+
 def test_overlapping_words():
     trie = dictionary_trie(["wordament", "word", "work", "top"])
     assert(trie.number_of_words() == 4)
@@ -65,6 +77,12 @@ def test_overlapping_words():
     assert(trie.is_word("work"))
     assert(trie.is_word("top"))
     assert(trie.is_word("wordament"))
+
+
+def test_empty_string_not_a_word():
+    trie = dictionary_trie(["grass", "like", "shops", "shop", "wasp", "want", "hops"])
+    assert(trie.number_of_words() == 7)
+    assert(not trie.is_word(""))
 
 
 def test_more_words():

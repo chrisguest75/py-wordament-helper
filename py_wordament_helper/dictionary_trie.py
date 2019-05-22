@@ -1,5 +1,8 @@
+import logging
 from typing import List, Text
 from py_wordament_helper.dictionary_abc import dictionary_abc
+
+logger = logging.getLogger('py_wordament_helper.dictionary_trie')
 
 
 class dictionary_trie(dictionary_abc):
@@ -78,6 +81,7 @@ class dictionary_trie(dictionary_abc):
         self._num_words = 0
         self._longest_word_length = 0
         self._root_node = dictionary_trie._trie_node('*')
+        self._trie_node_count = 1
         self.insert_words(words)
 
     def number_of_words(self) -> int:
@@ -99,26 +103,37 @@ class dictionary_trie(dictionary_abc):
     def insert_words(self, words: List = []):
         """Insert a list of words into the dictionary
 
+        Returns:
+            int -- Number of words inserted into trie
+
         Keyword Arguments:
             words {List} -- The list of words (default: {[]})
         """
+        inserted_count = 0
+
         for word in words:
-            if len(word) > self._longest_word_length:
-                self._longest_word_length = len(word)
-
             if word == "":
+                # skip empty words
                 continue
-            word = word.lower()
 
+            word = word.lower()
             if not self.is_word(word):
                 current_node = self._root_node
                 for letter in word[:-1]:
                     newnode = dictionary_trie._trie_node(letter, False)
+                    self._trie_node_count += 1
                     current_node = current_node.add_child(newnode)
 
                 newnode = dictionary_trie._trie_node(word[len(word) - 1], True)
+                self._trie_node_count += 1
                 current_node = current_node.add_child(newnode)
                 self._num_words += 1
+                inserted_count += 1
+                if len(word) > self._longest_word_length:
+                    self._longest_word_length = len(word)
+
+        logger.debug(f"{inserted_count} words inserted from {len(words)}, total words {self._num_words}, total nodes {self._trie_node_count}, longest word {self._longest_word_length}")
+        return inserted_count
 
     def is_partial_word(self, word: Text) -> bool:
         """Is the partial word in the dictionary with children?
@@ -130,11 +145,11 @@ class dictionary_trie(dictionary_abc):
         Returns:
             bool -- True if dictionary contains word
         """
-        current_node = self._root_node
-        word = word.lower()
-
         if word == "":
             return False
+            
+        current_node = self._root_node
+        word = word.lower()
 
         for letter in word[:-1]:
             child = current_node.get_child(letter)
@@ -158,11 +173,11 @@ class dictionary_trie(dictionary_abc):
         Returns:
             bool -- True if dictionary contains word
         """
-        current_node = self._root_node
-        word = word.lower()
-
         if word == "":
             return False
+
+        current_node = self._root_node
+        word = word.lower()
 
         for letter in word[:-1]:
             child = current_node.get_child(letter)

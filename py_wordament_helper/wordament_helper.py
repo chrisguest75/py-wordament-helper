@@ -1,5 +1,8 @@
+import logging
 from typing import List, Type, Text
 from py_wordament_helper.dictionary_abc import dictionary_abc
+
+logger = logging.getLogger('py_wordament_helper.wordament_helper')
 
 
 class wordament_helper():
@@ -64,7 +67,11 @@ class wordament_helper():
             grid {Text} -- The word square to solve
             trie {Type[dictionary_abc]} -- The dictionary supporting is_word()
         """
-        self._board = wordament_helper._board_state(4, 4, grid)
+
+        width = 4
+        height = 4
+        logger.debug(f"Grid \"{grid}\" split into {width}x{height}")
+        self._board = wordament_helper._board_state(width, height, grid)
         self._trie = trie
 
     def _solve(self, board_state, x: int, y: int, word: Text, depth: int, total_words: dict):
@@ -88,6 +95,7 @@ class wordament_helper():
         if depth == self._trie.longest_word_length():
             return
 
+        # Loop through adjacent tiles, select tile letter and recurse
         grid_state = board_state.copy()
         for y_off in range(-1, 1 + 1):
             newy = y + y_off
@@ -115,4 +123,7 @@ class wordament_helper():
                 grid_state.mark(x, y)
                 self._solve(grid_state, x, y, c, 1, total_words)
 
-        return total_words.keys()
+        words = total_words.keys()
+        logger.debug(f"{len(words)} words found in the grid")
+
+        return words

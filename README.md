@@ -35,8 +35,8 @@ pipenv install git+https://github.com/chrisguest75/py-wordament-helper#egg=py-wo
 ```
 
 # Example
-./main.py is an example of how to use the interface.
-You can run ./main.py from the root.  
+./examples/main.py is an example of how to use the interface.
+If in the pipenv environment you can run ./examples/main.py from inside the examples directory.  
 
 # Setting up tests in VSCode
 Use shift+cmd+p to open the command palette. 
@@ -57,4 +57,9 @@ Use radon to return code complexity and maintainability metrics.
 radon cc ./
 radon mi ./
 radon hal ./
+```
+# Building package for distribution
+
+```
+python3 setup.py sdist
 ```

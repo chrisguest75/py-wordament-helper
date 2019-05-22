@@ -12,11 +12,7 @@ def test_solver():
     helper = wordament_helper(grid, trie)
     words = helper.solve()
     assert(len(words) == 5)
-    assert("shops" in words)
-    assert("hops" in words)
-    assert("wasp" in words)
-    assert("want" in words)
-    assert("hops" in words)
+    assert(all(elem in ["shops", "shop", "wasp", "want", "hops"] for elem in words))
 
 
 def test_full_dictionary():
@@ -27,12 +23,9 @@ def test_full_dictionary():
 
     trie = dictionary_trie(lines)
 
-    assert(trie.number_of_words() == 370103)
+    assert(trie.number_of_words() == len(lines))
 
     helper = wordament_helper(grid, trie)
     words = helper.solve()
-    assert("grasshopper" in words)
-    assert("whopper" in words)
-    assert("grape" in words)
-    assert("warp" in words)
-    assert("orphan" in words)
+    assert(len(words) == 356)
+    assert(any(elem in ["grasshopper", "whopper", "grape", "warp", "orphan"] for elem in words))
