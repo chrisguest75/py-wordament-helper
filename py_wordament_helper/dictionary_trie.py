@@ -147,7 +147,7 @@ class dictionary_trie(dictionary_abc):
         """
         if word == "":
             return False
-            
+
         current_node = self._root_node
         word = word.lower()
 

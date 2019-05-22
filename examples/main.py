@@ -7,7 +7,7 @@ from py_wordament_helper.dictionary_trie import dictionary_trie
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
-    
+
     grid = 'GLNTSRAWRPHSEOPS'
     # trie = dictionary_trie(["grass", "like", "shops", "shop", "wasp", "want", "hops"])
     logging.info(f"grid = {grid}")
