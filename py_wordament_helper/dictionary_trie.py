@@ -121,18 +121,21 @@ class dictionary_trie(dictionary_abc):
                 current_node = self._root_node
                 for letter in word[:-1]:
                     newnode = dictionary_trie._trie_node(letter, False)
-                    self._trie_node_count += 1
                     current_node = current_node.add_child(newnode)
+                    if newnode is current_node:
+                        self._trie_node_count += 1
 
                 newnode = dictionary_trie._trie_node(word[len(word) - 1], True)
-                self._trie_node_count += 1
                 current_node = current_node.add_child(newnode)
+                if newnode is current_node:
+                    self._trie_node_count += 1
+
                 self._num_words += 1
                 inserted_count += 1
                 if len(word) > self._longest_word_length:
                     self._longest_word_length = len(word)
 
-        logger.debug(f"{inserted_count} words inserted from {len(words)}, total words {self._num_words}, total nodes {self._trie_node_count}, longest word {self._longest_word_length}")
+        logger.info(f"{inserted_count} words inserted from {len(words)}, total words {self._num_words}, total nodes {self._trie_node_count}, longest word {self._longest_word_length}", extra={"inserted": inserted_count, "total_words": self._num_words, "total_nodes": self._trie_node_count, "longest_word": self._longest_word_length})
         return inserted_count
 
     def is_partial_word(self, word: Text) -> bool:

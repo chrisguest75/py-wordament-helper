@@ -70,7 +70,7 @@ class wordament_helper():
 
         width = 4
         height = 4
-        logger.debug(f"Grid \"{grid}\" split into {width}x{height}")
+        logger.info(f"Grid \"{grid}\" split into {width}x{height}", extra={"grid": grid})
         self._board = wordament_helper._board_state(width, height, grid)
         self._trie = trie
 
@@ -124,6 +124,6 @@ class wordament_helper():
                 self._solve(grid_state, x, y, c, 1, total_words)
 
         words = total_words.keys()
-        logger.debug(f"{len(words)} words found in the grid")
+        logger.info(f"{len(words)} words found in the grid", extra={"words_found": len(words)})
 
         return words
